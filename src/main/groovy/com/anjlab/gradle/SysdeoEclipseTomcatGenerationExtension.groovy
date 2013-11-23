@@ -33,7 +33,7 @@ class SysdeoEclipseTomcatGeneratorExtension
     
     def init(Project project)
     {
-        project.allprojects.each {
+        project.rootProject.allprojects.each {
             excludeClasspath << "${it.name}"
             includeClasspath << "/${it.name}/bin"
         }
