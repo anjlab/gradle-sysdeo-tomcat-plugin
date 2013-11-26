@@ -1,7 +1,7 @@
 gradle-sysdeo-tomcat-plugin
 ===========================
 
-Gradle plugin for generating ".tomcatplugin" artifact for Sysdeo Eclipse Tomcat Launcher Plugin
+Gradle plugin for generating ".tomcatplugin" artifact for [Sysdeo Eclipse Tomcat Launcher Plugin](http://www.eclipsetotale.com/tomcatPlugin.html)
 
 Configuring DevLoader classpath manually is a pain. This plugin aims to make it easy by using information from your project dependencies.
 
