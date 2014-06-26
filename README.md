@@ -98,7 +98,7 @@ eclipseTomcat {
             maxActive: "100", maxIdle: "30", maxWait: "10000",
             driverClassName: "org.postgresql.Driver",
             url: "jdbc:postgresql://localhost/dbName",
-            username: "dmitrygusev")
+            username: System.getProperty('user.name'))
 
         Loader(delegate: true)
     }
