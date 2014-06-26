@@ -26,7 +26,7 @@ class SysdeoEclipseTomcatGeneratorExtension
     boolean redirectLogger = true
     boolean updateXml = true
     String warLocation = ""
-    String webPath = "/"
+    String webPath = "ROOT"
     Closure extraInfo
     List includeClasspath = []
     List excludeClasspath = []

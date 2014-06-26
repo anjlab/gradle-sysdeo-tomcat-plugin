@@ -43,7 +43,7 @@ eclipseTomcat {
     redirectLogger true
     updateXml true
     warLocation ""
-    webPath "/"
+    webPath "ROOT"
 }
 ```
 
@@ -99,7 +99,7 @@ eclipseTomcat {
             driverClassName: "org.postgresql.Driver",
             url: "jdbc:postgresql://localhost/dbName",
             username: "dmitrygusev")
-    
+
         Loader(delegate: true)
     }
 }
