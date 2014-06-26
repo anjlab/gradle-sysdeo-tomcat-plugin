@@ -19,7 +19,7 @@ buildscript {
         maven { url 'http://jcenter.bintray.com' }
     }
     dependencies {
-        classpath 'com.anjlab:gradle-sysdeo-tomcat-plugin:1.0.0'
+        classpath 'com.anjlab:gradle-sysdeo-tomcat-plugin:1.0.3'
     }
 }
 ```
