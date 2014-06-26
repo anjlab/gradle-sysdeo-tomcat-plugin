@@ -91,7 +91,10 @@ class SysdeoEclipseTomcatGeneratorPlugin implements Plugin<Project>
                     }
                 }
                 
-                classPathEntries.each { entry -> root.webClassPathEntries.get(0).appendNode("webClassPathEntry", entry) }
+                classPathEntries.each { entry ->
+                    root.webClassPathEntries.get(0).appendNode(
+                        "webClassPathEntry", entry.replaceAll("\\\\", "/"))
+                }
                 
                 def tomcatPluginFile = project.file(".tomcatplugin")
                 
