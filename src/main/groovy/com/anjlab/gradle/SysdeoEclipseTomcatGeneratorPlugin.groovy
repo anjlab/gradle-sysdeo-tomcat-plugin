@@ -35,6 +35,11 @@ class SysdeoEclipseTomcatGeneratorPlugin implements Plugin<Project>
                 if (!eclipseProject.natures.find { it.equals( nature ) }) {
                     eclipseProject.natures.add( nature );
                 }
+                // also make it work the successor, uqbar's version
+                nature = 'org.uqbar.eclipse.tomcat.xt.tomcatnature'
+                if (!eclipseProject.natures.find { it.equals( nature ) }) {
+                    eclipseProject.natures.add( nature );
+                }
             }
         }
         
