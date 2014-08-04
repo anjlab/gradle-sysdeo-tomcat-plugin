@@ -16,8 +16,8 @@ buildscript {
         maven { url 'http://jcenter.bintray.com' }
     }
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.3'
-        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.5.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5'
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
     }
 }
 
@@ -30,11 +30,11 @@ license {
     strictCheck true
 }
 
-apply plugin: 'bintray'
+apply plugin: 'com.jfrog.bintray'
 
 bintray {
-    user = "$System.env.bintray_user"
-    key = "$System.env.bintray_api_key"
+    user = "$bintray_user"
+    key = "$bintray_api_key"
     publications = ['mavenJava']
     pkg {
         repo = 'maven'
@@ -57,13 +57,6 @@ task sourcesJar(type: Jar) {
 jar.dependsOn sourcesJar
 
 def pomFragments = {
-    licenses {
-        license {
-            name "The Apache Software License, Version 2.0"
-            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
-            distribution "repo"
-        }
-    }
     developers {
         developer {
             id "dmitrygusev"
@@ -89,6 +82,12 @@ publishing {
                 root.children().remove(deps)
                 
                 root.appendNode('description', project.description)
+                
+                def license = root.appendNode('licenses').appendNode('license')
+                license.appendNode("name", "The Apache Software License, Version 2.0")
+                license.appendNode("url", "http://www.apache.org/licenses/LICENSE-2.0.txt")
+                license.appendNode("distribution", "repo")
+                
                 root.children().last() + pomFragments
                 
                 def pom = new XmlParser().parse(project.file("build/poms/pom-default.xml"))
