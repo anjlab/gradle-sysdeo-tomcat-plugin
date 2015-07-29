@@ -81,7 +81,7 @@ class SysdeoEclipseTomcatGeneratorPlugin implements Plugin<Project>
                 
                 classPathEntries.addAll project.eclipseTomcat.includeClasspath
                 
-                project.sourceSets.main.compileClasspath.minus(project.configurations.providedCompile).each
+                project.sourceSets.main.runtimeClasspath.minus(project.configurations.providedCompile).each
                 {
                     entry ->
                     
