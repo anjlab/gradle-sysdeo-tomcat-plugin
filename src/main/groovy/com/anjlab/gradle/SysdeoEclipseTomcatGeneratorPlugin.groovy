@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 AnjLab
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,6 +37,11 @@ class SysdeoEclipseTomcatGeneratorPlugin implements Plugin<Project>
                 }
                 // also make it work the successor, uqbar's version
                 nature = 'org.uqbar.eclipse.tomcat.xt.tomcatnature'
+                if (!eclipseProject.natures.find { it.equals( nature ) }) {
+                    eclipseProject.natures.add( nature );
+                }
+                // and the new nature for the uqbar version
+                nature = 'net.sf.eclipse.tomcat.tomcatnature'
                 if (!eclipseProject.natures.find { it.equals( nature ) }) {
                     eclipseProject.natures.add( nature );
                 }
